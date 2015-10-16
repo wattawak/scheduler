@@ -3,7 +3,13 @@
 {% block content %}
 
 	{% for project in projects %}
-		{{ project }}
+	<div class="project">
+		<h2>{{ project.project_name }}</h2>
+		<p class="milestone">Start Date: {{ project.start_date }}</p>
+		<p class="milestone">Design Approval: {{ project.design_approval }}</p>
+		<p class="milestone">Programming Complete: {{ project.programming_complete }}</p>
+		<p class="milestone">QA Complete: {{ project.qa_complete }}</p>
+	</div>
 	{% endfor %}
 	
 {% endblock content %}

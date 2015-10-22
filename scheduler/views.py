@@ -7,8 +7,6 @@ from .forms import RescheduleForm
 def project_list(request):
 	if request.method == "POST":
 		form = RescheduleForm(request.POST)
-		#how do I get the project the form is related to???
-		# project = Project.objects.get()
 		if form.is_valid():
 			days_later = form.cleaned_data['days_later']
 			project_id = form.cleaned_data['project_id']

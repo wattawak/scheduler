@@ -4,15 +4,6 @@ from .models import Project
 from .forms import RescheduleForm
 
 
-def reschedule(days_later):					
-	start_date += timedelta(days=days_later)
-	design_approval += timedelta(days=days_later)
-	programming_start += timedelta(days=days_later)
-	programming_complete += timedelta(days=days_later)
-	qa_complete += timedelta(days=days_later)
-	return start_date, design_approval, programming_start, programming_complete, qa_approval
-
-
 def project_list(request):
 	if request.method == "POST":
 		form = RescheduleForm(request.POST)

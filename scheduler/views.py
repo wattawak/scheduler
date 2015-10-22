@@ -20,6 +20,8 @@ def project_list(request):
 		# project = Project.objects.get()
 		if form.is_valid():
 			days_later = form.cleaned_data['days_later']
+			project_id = form.cleaned_data['project']
+			project = Project.objects.get(pk=project_id)
 			project.reschedule(days_later)
 			project.save()
 	else:

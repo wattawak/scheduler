@@ -16,7 +16,8 @@ def reschedule(days_later):
 def project_list(request):
 	if request.method == "POST":
 		form = RescheduleForm(request.POST)
-		project = Project.objects.get(#how do I get the project the form is related to???)
+		#how do I get the project the form is related to???
+		# project = Project.objects.get()
 		if form.is_valid():
 			days_later = form.cleaned_data['days_later']
 			project.reschedule(days_later)

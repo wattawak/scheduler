@@ -10,6 +10,11 @@
 		<p class="milestone">Programming Start: {{ project.programming_start }}</p>
 		<p class="milestone">Programming Complete: {{ project.programming_complete }}</p>
 		<p class="milestone">QA Complete: {{ project.qa_complete }}</p>
+		<form method="POST" class="reschedule-form">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit" class="save button">Reschedule</button>
+		</form>
 	</div>
 	{% endfor %}
 	

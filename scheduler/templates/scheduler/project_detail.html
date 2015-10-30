@@ -1,0 +1,22 @@
+{% extends "scheduler/base.html" %}
+
+{% block content %}
+
+{% if project_detail %}
+	<h2>{{ object.project_name }}</h2>
+		<ul>
+			<li class="milestone"> Start Date: {{ object.start_date }}</li>
+			<li class="milestone"> Design Approval: {{ object.design_approval }}</li>
+			<li class="milestone"> Programming Starts: {{ object.programming_start }}</li>
+			<li class="milestone"> Programming Complete: {{ object.programming_complete }}</li>
+			<li class="milestone"> QA Complete: {{ object.qa_complete }}</li>
+		</ul>
+		<p> Select the number of days in the future that this project's milestones dates should be moved forward.</p>
+		<form method="POST" class="reschedule-form">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit" class="save button">Reschedule</button>
+		</form>
+
+{% endif %}		
+{% endblock content %}		

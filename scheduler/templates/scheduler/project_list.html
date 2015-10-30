@@ -2,20 +2,14 @@
 
 {% block content %}
 
-	{% for project in projects %}
-	<div class="project">
-		<h2>{{ project.project_name }}</h2>
-		<p class="milestone">Start Date: {{ project.start_date }}</p>
-		<p class="milestone">Design Approval: {{ project.design_approval }}</p>
-		<p class="milestone">Programming Start: {{ project.programming_start }}</p>
-		<p class="milestone">Programming Complete: {{ project.programming_complete }}</p>
-		<p class="milestone">QA Complete: {{ project.qa_complete }}</p>
-		<form method="POST" class="reschedule-form">
-			{% csrf_token %}
-			{{ form.as_p }}
-			<button type="submit" class="save button">Reschedule</button>
-		</form>
-	</div>
-	{% endfor %}
+	{% if project_list %}
+		<ul>
+		{% for project in project_list %}
+		<li><a href="{% url "scheduler:project_detail" project.id %}">{{ project.project_name }}</a></li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p>No projects, oh my!</p>
+	{% endif %}
 	
 {% endblock content %}

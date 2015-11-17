@@ -24,23 +24,26 @@ class ProjectDetailView(DetailView):
 		context = super(ProjectDetailView, self).get_context_data(**kwargs)
 		context['form'] = RescheduleForm()
 		return context		
+
 	
 class ProjectDetailFormView(SingleObjectMixin, FormView):
 	template_name = 'scheduler/project_detail.html'
 	form_class = RescheduleForm
 	model = Project
+	context_object_name = 'project_detail'
 	
+	def form_valid(self, form):
+		days_later = form.cleaned_data['days_later']
+		self.object.reschedule(days_later)
+		self.object.save()
+		return super(ProjectDetailFormView, self).form_valid(form)
+		
 	def post(self, request, *args, **kwargs):
 		self.object = self.get_object()
-		form = self.get_form()
-		if form.is_valid():
-			days_later = form.cleaned_data['days_later']
-			self.object.reschedule(days_later)
-			self.object.save()
-			return super(ProjectDetailFormView, self).post(request, *args, **kwargs)
+		return super(ProjectDetailFormView, self).post(request, *args, **kwargs)	
 	
 	def get_success_url(self):
-		return reverse('project_detail', kwargs={'pk': self.object.pk})
+		return reverse('scheduler:project_detail', kwargs={'pk': self.object.pk})
 		
 	
 class ProjectDetail(View):

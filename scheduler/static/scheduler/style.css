@@ -1,0 +1,101 @@
+
+body {
+	font-size: 14px;
+	font-family: 'Lora', serif;
+}
+
+.content-block {
+	margin: 25px;
+}
+
+/* Page Header */
+
+.header {
+	background-color: #CFCFCF;
+	padding: 20px 20px 20px 20px;	
+}
+
+h2 {
+	font-size: 2em;
+	padding: 0px 0px 20px 0px;	
+	margin: 0px;
+	color: #212120;
+}
+
+.header h1, .header h1 a, .header h1 a:active, .header h1 a:visited {
+	color: #212120;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: normal;
+	font-size: 1.8em;
+	text-decoration: none;
+	margin: 0px;
+}
+
+/* Project List Page */
+
+.project-list ul {
+	padding: 0px;
+}
+
+.project-list .project {
+	list-style: none;
+	padding-bottom: 15px;
+	font-size: 1.5em;	
+}
+
+.project-list li i {
+	padding: 5px;
+}
+
+.project-list .project ul {
+	padding-bottom: 15px;
+}
+
+.list-page-dates li {
+	list-style: none;
+	padding: 5px 0px 0px 10px;
+}
+
+.project-list li a, .project-list li a:visited {
+	text-decoration: none;
+	color: #212120;
+}
+
+/* Dates List Detail Page */
+
+.milestone-list ul {
+	list-style: none;
+	float: left;
+	padding: 25px 40px 10px 25px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: grey;
+	margin: 0px 40px 0px 0px;	
+}
+
+.milestone {
+	margin: 0px;
+}
+	
+.milestone li {
+	padding: 0px 0px 15px 0px;
+}
+
+/* Reschedule Form Detail Page */
+
+.save-button {
+	background-color: #11BA16;
+	color: white;
+	padding: 5px;
+	border: 0px;
+	font-size: 1.3em;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.reschedule-form-container {
+	width: 700px;
+}
+
+.reschedule-form p {
+	
+}

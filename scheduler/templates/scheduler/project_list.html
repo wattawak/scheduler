@@ -1,15 +1,24 @@
 {% extends "scheduler/base.html" %}
 
 {% block content %}
-
+	
+	<div class="project-list">
 	{% if project_list %}
 		<ul>
 		{% for project in project_list %}
-		<li><a href="{% url "scheduler:project_detail" project.id %}">{{ project.project_name }}</a></li>
+		<li class="project"><a href="{% url "scheduler:project_detail" project.id %}">{{ project.project_name }}</a><i class="fa fa-pencil"></i></li>
+			<ul class="list-page-dates">
+				<li> <strong>Start Date: </strong>{{ project.start_date }}</li>
+				<li> <strong>Design Approval: </strong>{{ project.design_approval }}</li>
+				<li> <strong>Programming Starts: </strong>{{ project.programming_start }}</li>
+				<li> <strong>Programming Complete: </strong>{{ project.programming_complete }}</li>
+				<li> <strong>QA Complete: </strong>{{ project.qa_complete }}</li>
+			</ul>
 		{% endfor %}
 		</ul>
 	{% else %}
 		<p>No projects, oh my!</p>
 	{% endif %}
+	</div>
 	
 {% endblock content %}
